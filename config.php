@@ -11,7 +11,7 @@ try
 //$dbh = new PDO($dsn,"root","");
  //$m = new MongoClient();
  // $m = new Mongo(getenv('OPENSHIFT_MONGODB_DB_URL'));
-    $m =new MongoDB\Driver\Manager("mongodb://172.30.70.36:27017");
+    $m =new MongoDB\Driver\Manager("tms://172.30.70.36:27017");
   echo "Connection to database successfully";
   $db = $m->tms;
   echo "Database tms selected";
