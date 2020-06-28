@@ -1,3 +1,31 @@
+<?php
+session_start();
+include('config.php');
+if(isset($_POST['login']))
+{
+$uname=$_POST['username'];
+$password=$_POST['password'];
+  $collection = $db->customers;
+   
+$check = array(
+    'username' => $uname,
+    'password' => $password,
+  );
+   $cursor = $collection->count($check);
+   // iterate cursor to display title of documents
+	
+   if($cursor > 0) {
+$_SESSION['alogin']=$_POST['username'];
+echo "<script type='text/javascript'> document.location = 'front_end.php'; </script>";
+} else{
+	
+	echo "<script>alert('Invalid Details');</script>";
+
+}
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -233,7 +261,7 @@ html{
 		</h1>
 	</header>
 	<h1 class="text-center">Login</h1>
-	<form method="POST" action="userlogin.php" class="registration-form">
+	<form method="POST" class="registration-form">
 		<label>
 			<span class="label-text">username</span>
 			<input type="text" name="username">
@@ -244,7 +272,7 @@ html{
 		</label>
 	
 		<div class="text-center">
-			<button type="submit" name="register">login</button>
+			<button type="submit" name="login">login</button>
 		</div>
 	</form>
 </div>
@@ -280,3 +308,4 @@ html{
 </script>
 </body>
 </html>
+

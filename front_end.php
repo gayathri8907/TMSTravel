@@ -33,39 +33,24 @@
 
  <!--navigation-bar-->
 
+<div>
+  <div style="background-image:url(images/20170614125516.jpg);width:100%; height:20%">
+          <span style="align=right"><a href="front_end.php">Home</a><span>
+          <span style="align=right"><a href="contact_us.php">Contact us</a></span>
 
-<nav id="scroll_1" class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>                        
-      </button>
-	  <a href="front_end.php">
-	  <img src="upload/20170614125516.png" class="img-responsive hvr-grow-shadow image1">
-	  </a>
-     
-    </div>
-    <div>
-      <div class="collapse navbar-collapse navbar-right" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li class="hvr-underline-from-left"><a href="front_end.php">Home</a></li>
-          <li class="hvr-underline-from-right"><a href="contact_us.php">Contact us</a></li>
-       
-          </ul> 
+          
         
-      </div>
-    </div>
+    </div>  
+    
   </div>
-</nav>	 <!--carosel--->
+	 <!--carosel--->
 	 
 <div class="container"> 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
 	
 	      <div class="item active">
-        <img src="upload/20200416175237.jpg" alt="Los Angeles" style="width:100%; height:80%">
+        <img src="images/banner.jpg" alt="Los Angeles" style="width:60%; height:80%">
       </div>
 	
       
@@ -103,183 +88,6 @@
 
 <br> <br>
 <p><input maxlength="80" name="Rahul" size="250" type="text" value="45" /><iframe align="middle" frameborder="1" height="317" longdesc="Paris Tour" scrolling="no" src="https://www.youtube.com/embed/AQ6GmpMu5L8" width="560"></iframe><iframe align="middle" frameborder="1" height="315" longdesc="Swiz Tour" scrolling="no" src="https://www.youtube.com/embed/24VvcOVg-fg" width="560"></iframe></p>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-
-<div id="editor">&nbsp;</div>
-</p>
-</div>
-
-
-</div>
-
-
-
-
-<!--featured Tours--->
-
-<div class="bg-image container-fluid">
-<div class="row">
-<div class="col-md-12 text-center">
-
-<div class="kd-modrentitle thememargin1">
-<h3 class="hvr-bounce-to-left">Featured Tours</h3>
-
-<span><h2> <i class="fa fa-globe"></i> </h2> </span>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="container">
-
-<div class="row mar-bottom">
-	<div class="col-md-4 album">
-	<a href="select_tour.php?id=92">
-		<div class="image2 img_hover">
-			<img class="img-center img-responsive" src="upload/20200414162259.jpg" style="width:100%; height:40%"
-			alt=""> 
-	
-
-		<div class="caption">
-
-			<span class="package-price" style="background-color:black;">5,000</span>
-
-			<div class="kd-bottomelement">
-				<h5 class="front">
-				
-					mumbai
-				</h5>	
-			<div class="days-counter" style="background-color: #087dc2;"><span>3 days</span></div>
-			</div>
-
-		</div><!--caption-->
-		<div class="img_hover_wrap"></div>
-	    </div> <!--image2-->
-		</a>
-	</div><!--col-md-4-->
-	<div class="col-md-4 album">
-	<a href="select_tour.php?id=93">
-		<div class="image2 img_hover">
-			<img class="img-center img-responsive" src="upload/20200415070528.jpg" style="width:100%; height:40%"
-			alt=""> 
-	
-
-		<div class="caption">
-
-			<span class="package-price" style="background-color:black;">30,000</span>
-
-			<div class="kd-bottomelement">
-				<h5 class="front">
-				
-					Himalaya
-				</h5>	
-			<div class="days-counter" style="background-color: #087dc2;"><span>4 days </span></div>
-			</div>
-
-		</div><!--caption-->
-		<div class="img_hover_wrap"></div>
-	    </div> <!--image2-->
-		</a>
-	</div><!--col-md-4-->
-</div> <!--row-->
-
-</div> <!--container-->
-</div> <!--bg-image-->
-
-
-
-
-
-<div class="container-fluid">
-<div class="row">
-<div class="col-md-12 text-center">
-
-<div class="kd-modrentitle thememargin1">
-<h3 class="hvr-grow-shadow">Our Tour gallery</h3>
-
-<span><h2> <i class="fa fa-globe"></i> </h2> </span>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-<div class="container">
-<div class="row">
-
-</div><!--row-->
-</div> <!--container-->
-
-
-
-
-<div class="container">
-<div class="container-fluid">
-<div class="row">
-<div class="col-md-12 text-center">
-
-<div class="kd-modrentitle thememargin1">
-<h3>Our Tour Partners</h3>
-
-<span><h2> <i class="fa fa-globe"></i> </h2> </span>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-<div class="row">
-
-						  <img class="img-border" src="images/">
-						  
-
-
-</div> <!--row-->
-</div> <!--container-->
-   
-   <!--footer-->
-   
- 
-
-
-
 
     
     
