@@ -1,22 +1,20 @@
 <?php
 session_start();
-include('config.php');
+include('includes/config.php');
 if(isset($_POST['login']))
 {
 $uname=$_POST['username'];
-$password=$_POST['password'];
-  $collection = $db->customers;
-   
-$check = array(
-    'username' => $uname,
-    'password' => $password,
-  );
-   $cursor = $collection->count($check);
-   // iterate cursor to display title of documents
-	
-   if($cursor > 0) {
+$password=md5($_POST['password']);
+$sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
+$query= $dbh -> prepare($sql);
+$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
+$query-> bindParam(':password', $password, PDO::PARAM_STR);
+$query-> execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
 $_SESSION['alogin']=$_POST['username'];
-echo "<script type='text/javascript'> document.location = 'front_end.php'; </script>";
+echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
 } else{
 	
 	echo "<script>alert('Invalid Details');</script>";
@@ -26,286 +24,59 @@ echo "<script type='text/javascript'> document.location = 'front_end.php'; </scr
 }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE HTML>
+<html>
 <head>
-	<title>login</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/My_home.css">
-	<link rel="stylesheet" href="css/My_home_1.css">
+<title>TMS | Admin Sign in</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="css/morris.css" type="text/css"/>
+<!-- Graph CSS -->
+<link href="css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery-ui.css"> 
+<!-- jQuery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- //jQuery -->
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+<!-- //lined-icons -->
+</head> 
+<body>
+	<div class="main-wthree">
+	<div class="container">
+	<div class="sin-w3-agile">
+		<h2>Sign In</h2>
+		<form  method="post">
+			<div class="username">
+				<span class="username">Username:</span>
+				<input type="text" name="username" class="name" placeholder="" required="">
+				<div class="clearfix"></div>
+			</div>
+			<div class="password-agileits">
+				<span class="username">Password:</span>
+				<input type="password" name="password" class="password" placeholder="" required="">
+				<div class="clearfix"></div>
+			</div>
 			
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/home.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	 <link href="https://fonts.googleapis.com/css?family=Slackey" rel="stylesheet"> 
-	 <link href="https://fonts.googleapis.com/css?family=Kanit">
-	 <style>
-	 @import url(https://fonts.googleapis.com/css?family=Cookie|Raleway:300,700,400);
-*{
-	box-sizing: border-box;
-	font-size: 1em;
-	margin: 0;
-	padding: 0;
-}
-body{
-	background: url('images/wow.jpg') center no-repeat;
-    background-size: cover;
-	color: #333;
-	font-size: 18px;
-	font-family: 'Raleway', sans-serif;
-}
-.container{
-	border-radius: 0.5em;
-	box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
-	display: block;
-	max-width: 480px;
-	overflow: hidden;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	padding: 2em;
-	position: absolute;
-		top: 50%;
-		left: 50%;
-		z-index: 1;
-	width: 98%;
-}
-.container:before{
-	background: url('images/wow.jpg')center no-repeat;
-	background-size: cover;
-	
-
-	content: '';
-	-webkit-filter: blur(10px);
-	filter: blur(10px);
-	height: 100vh;
-	position: absolute;
-		top: 50%;
-		left: 50%;
-		z-index: -1;
-	-webkit-transform: translate(-50%, -50%);
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	width: 100vw;
-}
-.container:after{
-	background: rgba(255,255,255,0.6);
-	content: '';
-	display: block;
-	height: 100%;
-	position: absolute;
-		top: 0;
-		left: 0;
-		z-index: -1;
-	width: 100%;
-}
-form button.submit{
-	background: rgba(255,255,255,0.25);
-	border: 1px solid #333;
-	line-height: 1em;
-	padding: 0.5em 0.5em;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-}
-form button:hover,
-form button:focus,
-form button:active,
-form button.loading{
-	background: #333;
-	color: #fff;
-	outline: none;
-}
-form button.success{
-	background: #27ae60;
-	border-color: #27ae60; 
-	color: #fff;
-}
-@-webkit-keyframes spin{
-	from{ transform: rotate(0deg); }
-	to{ transform: rotate(360deg); }
-}
-@keyframes spin{
-	from{ transform: rotate(0deg); }
-	to{ transform: rotate(360deg); }
-}
-form button span.loading-spinner{
-	-webkit-animation: spin 0.5s linear infinite;
-	animation: spin 0.5s linear infinite;
-	border: 2px solid #fff;
-	border-top-color: transparent;
-	border-radius: 50%;
-	display: inline-block;
-	height: 1em;
-	width: 1em;
-}
-
-form label{
-	border-bottom: 1px solid #333;
-	display: block;
-	font-size: 1.25em;
-	margin-bottom: 0.5em;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-}
-form label.col-one-half{
-	float: left;
-	width: 50%;
-}
-form label.col-one-half:nth-of-type(even){
-	border-left: 1px solid #333;
-	padding-left: 0.25em;
-}
-form label input{
-	background: none;
-	border: none;
-	line-height: 1em;
-	font-weight: 300;
-	padding: 0.125em 0.25em;
-	width: 100%;
-}
-form label input:focus{
-	outline: none;
-}
-form label input:-webkit-autofill{
-	background-color: transparent !important;
-}
-form label span.label-text{
-	display: block;
-	font-size: 0.5em;
-	font-weight: bold;
-	padding-left: 0.5em;
-	text-transform: uppercase;
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-}
-form label.checkbox{
-	border-bottom: 0;
-	text-align: center;
-}
-form label.checkbox input{
-	display: none;
-}
-form label.checkbox span{
-	font-size: 0.5em;
-}
-form label.checkbox span:before{
-	content: '\e157';
-	display: inline-block;
-	font-family: 'Glyphicons Halflings';
-	font-size: 1.125em;
-	padding-right: 0.25em;
-	position: relative;
-		top: 1px;
-}
-form label.checkbox input:checked + span:before{content: '\e067';}
-form label.invalid{border-color: #c0392b !important;}
-form label.invalid span.label-text{color: #c0392b;}
-form label.password{position: relative;}
-form label.password button.toggle-visibility{
-	background: none;
-	border: none;
-	cursor: pointer;
-	font-size: 0.75em;
-	line-height: 1em;
-	position: absolute;
-		top: 50%;
-		right: 0.5em;
-	text-align: center;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
-	-webkit-transition: all 0.25s;
-	transition: all 0.25s;
-}
-form label.password button.toggle-visibility:hover,
-form label.password button.toggle-visibility:focus,
-form label.password button.toggle-visibility:active{
-	color: #000;
-	outline: none;
-}
-form label.password button.toggle-visibility span{vertical-align: middle;}
-
-h1{
-	font-size: 3em;
-	margin: 0 0 0.5em 0;
-	text-align: center;
-	font-family: 'Cookie', cursive;
-}
-h1 img{
-	height: auto;
-	margin: 0 auto;
-	max-width: 150px;
-	width: 100%;
-}
-html{
-	font-size: 18px;
-	height: 100%;
-}
-
-.text-center{
-	text-align: center;
-}
-	 </style>
-	 
-	 <body>
-	 
-	 <div class="container">
-	<header>
-		<h1>
-			<a href="#">
-				<img src="images/go.jpg" alt="Authentic Collection">
-			</a>
-		</h1>
-	</header>
-	<h1 class="text-center">Login</h1>
-	<form method="POST" class="registration-form">
-		<label>
-			<span class="label-text">username</span>
-			<input type="text" name="username">
-		</label>
-		<label class="password">
-			<span class="label-text">Password</span>
-			<input type="password" name="password">
-		</label>
-	
-		<div class="text-center">
-			<button type="submit" name="login">login</button>
-		</div>
-	</form>
-</div>
-
-<script>
-(function($){
-    $.fn.extend({
-        donetyping: function(callback,timeout){
-            timeout = timeout || 500;
-            var timeoutReference,
-                doneTyping = function(el){
-                    if (!timeoutReference) return;
-                    timeoutReference = null;
-                    callback.call(el);
-                };
-            return this.each(function(i,el){
-                var $el = $(el);
-                $el.is(':input') && $el.on('keyup keypress',function(e){
-                    if (e.type=='keyup' && e.keyCode!=8) return;
-                    if (timeoutReference) clearTimeout(timeoutReference);
-                    timeoutReference = setTimeout(function(){
-                        doneTyping(el);
-                    }, timeout);
-                }).on('blur',function(){
-                    doneTyping(el);
-                });
-            });
-        }
-    });
-})(jQuery);
-
-
-</script>
+			<div class="login-w3">
+					<input type="submit" class="login" name="login" value="Sign In">
+			</div>
+			<div class="clearfix"></div>
+		</form>
+				<div class="back">
+					<a href="../index.php">Back to home</a>
+				</div>
+				
+	</div>
+	</div>
+	</div>
 </body>
 </html>
-
