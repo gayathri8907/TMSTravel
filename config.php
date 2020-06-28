@@ -1,18 +1,16 @@
+<?php
+$dbhost = getenv("MYSQL_SERVICE_HOST");
+$dbport = getenv("MYSQL_SERVICE_PORT");
+$dbuser = getenv("databaseuser");
+$dbpwd = getenv("databasepassword");
+$dbname = getenv("databasename");
 
-<?php 
-// DB credentials.
-define('DB_HOST','127.0.0.1');
-define('DB_USER','root');
-define('DB_PASS','');
-define('DB_NAME','tms');
-$dsn = "mysql:host=127.0.0.1;port=3306;charset=utf8;dbname=tms";
-// Establish database connection.
-try
-{
-$dbh = new PDO($dsn,"root","");
+$connection = new mysqli($dbhost, $dbuser, $dbpwd, $dbname);
+if ($connection->connect_errno) {
+    printf("Connect failed: %s\n", $mysqli->connect_error);
+    exit();
+} else {
+    printf("Connected to the database");
 }
-catch (PDOException $e)
-{
-exit("Error: " . $e->getMessage());
-}
+$connection->close();
 ?>
