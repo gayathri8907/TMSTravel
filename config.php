@@ -9,7 +9,8 @@
 try
 {
 //$dbh = new PDO($dsn,"root","");
- $m = new MongoClient();
+ //$m = new MongoClient();
+   $m = new Mongo(getenv('OPENSHIFT_MONGODB_DB_URL'));
   echo "Connection to database successfully";
   $db = $m->tms;
   echo "Database tms selected";
