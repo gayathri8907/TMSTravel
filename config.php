@@ -12,5 +12,4 @@ if ($connection->connect_errno) {
 } else {
     printf("Connected to the database");
 }
-$connection->close();
 ?>
