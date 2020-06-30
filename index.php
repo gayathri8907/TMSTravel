@@ -24,59 +24,89 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 }
 
 ?>
-
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>TMS | Admin Sign in</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- Bootstrap Core CSS -->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<!-- Custom CSS -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />
-<link rel="stylesheet" href="css/morris.css" type="text/css"/>
-<!-- Graph CSS -->
-<link href="css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="css/jquery-ui.css"> 
-<!-- jQuery -->
-<script src="js/jquery-2.1.4.min.js"></script>
-<!-- //jQuery -->
-<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
-<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-<!-- lined-icons -->
-<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
-<!-- //lined-icons -->
-</head> 
-<body>
-	<div class="main-wthree">
-	<div class="container">
-	<div class="sin-w3-agile">
-		<h2>Sign In</h2>
-		<form  method="post">
-			<div class="username">
-				<span class="username">Username:</span>
-				<input type="text" name="username" class="name" placeholder="" required="">
-				<div class="clearfix"></div>
-			</div>
-			<div class="password-agileits">
-				<span class="username">Password:</span>
-				<input type="password" name="password" class="password" placeholder="" required="">
-				<div class="clearfix"></div>
-			</div>
-			
-			<div class="login-w3">
-					<input type="submit" class="login" name="login" value="Sign In">
-			</div>
-			<div class="clearfix"></div>
-		</form>
-				<div class="back">
-					<a href="../index.php">Back to home</a>
-				</div>
-				
-	</div>
-	</div>
-	</div>
+	<title>login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/home.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	 <link href="https://fonts.googleapis.com/css?family=Slackey" rel="stylesheet"> 
+	 <link href="https://fonts.googleapis.com/css?family=Kanit">
+	 <style>
+	 @import url(https://fonts.googleapis.com/css?family=Cookie|Raleway:300,700,400);
+*{
+	box-sizing: border-box;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: url('images/wow.jpg') center no-repeat;
+    background-size: cover;
+	color: #333;
+	font-size: 18px;
+	font-family: 'Raleway', sans-serif;
+}
+</style>
+</head>
+ <body>
+	 
+	 <div class="container">
+	<header>
+		<h1>
+			<a href="#">
+				<img src="images/go.jpg" alt="Authentic Collection">
+			</a>
+		</h1>
+	</header>
+	<h1 class="text-center">Login</h1>
+	<form method="POST" class="registration-form">
+		<label>
+			<span class="label-text">username</span>
+			<input type="text" name="username">
+		</label>
+		<label class="password">
+			<span class="label-text">Password</span>
+			<input type="password" name="password">
+		</label>
+	
+		<div class="text-center">
+			<button type="submit" name="login">login</button>
+		</div>
+	</form>
+</div>
+<script>
+(function($){
+    $.fn.extend({
+        donetyping: function(callback,timeout){
+            timeout = timeout || 500;
+            var timeoutReference,
+                doneTyping = function(el){
+                    if (!timeoutReference) return;
+                    timeoutReference = null;
+                    callback.call(el);
+                };
+            return this.each(function(i,el){
+                var $el = $(el);
+                $el.is(':input') && $el.on('keyup keypress',function(e){
+                    if (e.type=='keyup' && e.keyCode!=8) return;
+                    if (timeoutReference) clearTimeout(timeoutReference);
+                    timeoutReference = setTimeout(function(){
+                        doneTyping(el);
+                    }, timeout);
+                }).on('blur',function(){
+                    doneTyping(el);
+                });
+            });
+        }
+    });
+})(jQuery);
+
+
+</script>
 </body>
 </html>
