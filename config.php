@@ -9,8 +9,7 @@ $connection = new mysqli($dbhost, $dbuser, $dbpwd, $dbname, $dbport);
 if ($connection->connect_errno) {
     printf("Connection failed: %s\n", $mysqli->connect_error);
     exit();
-} else{
-echo "db connected";
+} 
 }
 catch(Exception $e){
 echo "oops something went wrong";
