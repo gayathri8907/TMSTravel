@@ -1,9 +1,9 @@
 <?php
 $dbhost = getenv("MYSQL_SERVICE_HOST");
-$dbport = getenv("MYSQL_SERVICE_PORT");
+$dbport = 3306;
 $dbuser = getenv("databaseuser");
 $dbpwd = getenv("databasepassword");
-$dbname = tms;
+$dbname = getenv("databasename");
 try{
 $connection = mysqli_connect($dbhost, $dbport, $dbuser, $dbpwd, $dbname);
 if ($connection->connect_errno) {
