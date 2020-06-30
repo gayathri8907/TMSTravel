@@ -11,5 +11,6 @@ if ($connection->connect_errno) {
     exit();
 } }
 catch(Exception $e){
+echo "oops something went wrong";
 }
 ?>
