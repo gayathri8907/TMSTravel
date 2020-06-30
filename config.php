@@ -9,6 +9,10 @@ $connection = new mysqli($dbhost, $dbport, $dbuser, $dbpwd, $dbname);
 if ($connection->connect_errno) {
     printf("Connection failed: %s\n", $mysqli->connect_error);
     exit();
+
+$myName = "Jr's";
+$myName = mysqli_real_escape_string($connection, $myName);
+
 } 
 }
 catch(Exception $e){
