@@ -52,6 +52,7 @@ body{
 	font-size: 18px;
 	font-family: 'Raleway', sans-serif;
 }
+
 .container{
 	border-radius: 0.5em;
 	box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
