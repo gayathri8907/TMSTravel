@@ -12,6 +12,6 @@ if ($connection->connect_errno) {
 } else {
     printf("Connected to the database");
 }}
-catch(Exception e){
+catch(Exception $e){
 }
 ?>
