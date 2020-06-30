@@ -3,9 +3,9 @@ $dbhost = getenv("MYSQL_SERVICE_HOST");
 $dbport = getenv("MYSQL_SERVICE_PORT");
 $dbuser = getenv("databaseuser");
 $dbpwd = getenv("databasepassword");
-$dbname = getenv("databasename");
+$dbname = tms;
 try{
-$connection = mysqli_connect($dbhost, $dbname, $dbuser, $dbpwd, $dbport);
+$connection = mysqli_connect($dbhost, $dbport, $dbuser, $dbpwd, $dbname);
 if ($connection->connect_errno) {
     printf("Connection failed: %s\n", $mysqli->connect_error);
     exit();
