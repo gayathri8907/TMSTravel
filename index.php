@@ -30,6 +30,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 	<title>login</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/homestyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/home.js"></script>
