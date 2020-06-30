@@ -30,7 +30,7 @@ echo "<script type='text/javascript'> document.location = 'dashboard.php'; </scr
 	<title>login</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/homestyle.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/home.js"></script>
@@ -51,6 +51,7 @@ body{
 	color: #333;
 	font-size: 18px;
 	font-family: 'Raleway', sans-serif;
+}
 .container{
 	border-radius: 0.5em;
 	box-shadow: 0 0 1em 0 rgba(51,51,51,0.25);
@@ -242,7 +243,7 @@ html{
 .text-center{
 	text-align: center;
 }
-}
+
 </style>
 </head>
  <body>
