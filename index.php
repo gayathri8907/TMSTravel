@@ -5,18 +5,18 @@ if(isset($_POST['login']))
 {
 $uname=$_POST['username'];
 $password=md5($_POST['password']);
-$sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
+//$sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
 
-$results= mysqli_query($connection, $sql);
-if(mysqli_num_rows($result) > 0)
-{
+//$results= mysqli_query($connection, $sql);
+//if(mysqli_num_rows($result) > 0)
+//{
 $_SESSION['alogin']=$_POST['username'];
 echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
-} else{
+//} else{
 	
-	echo "<script>alert('please provide Valid login details or rest your password');</script>";
+	//echo "<script>alert('please provide Valid login details or rest your password');</script>";
 
-}
+//}
 
 }
 
