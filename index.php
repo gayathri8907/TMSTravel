@@ -7,7 +7,7 @@ $uname=$_POST['username'];
 $password=md5($_POST['password']);
 $sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
 
-$results== mysqli_query($connection, $sql);
+$results= mysqli_query($connection, $sql);
 if(mysqli_num_rows($result) > 0)
 {
 $_SESSION['alogin']=$_POST['username'];
